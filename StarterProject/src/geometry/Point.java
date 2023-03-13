@@ -14,7 +14,7 @@ public class Point {
 	}
 	
 	//Metode pristupa 
-	
+	 
 	public int getX()
 	{ 
 		return x;
