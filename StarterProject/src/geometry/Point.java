@@ -1,44 +1,52 @@
 package geometry;
 
-public class Point {
-
+public class Point{
 	private int x;
 	private int y;
-	private boolean selected; 
+	private boolean selected;
 	
-	public double distance(int x1, int y1) {
-		int dx= x1-x;
-		int dy= y1-y;
-		double d= Math.sqrt(dx*dx+dy*dy);
+	public double distance(int x2, int y2) {
+		int dx = x2-x;
+		int dy =y2-y;
+		double d =Math.sqrt(dx*dx+dy*dy);
 		return d;
+		
 	}
-	
-	//Metode pristupa 
-	 
-	public int getX()
-	{ 
+	//METODE PRISTUPA
+	public int getX() 
+	{
 		return x;
 	}
-	public void setX(int newX) {
+	
+	public void setX(int x)
+	{
+		this.x=x;
 		
-		x=newX;
 	}
 	
-	public int getY()
-	{ 
+	public int getY() 
+	{
 		return y;
 	}
-	public void setY(int newY)
+	public void setY(int y)
 	{
-		y=newY;
+		this.y=y;
 	}
 	
+   // Kod boolean promenljivih get metodu pisemo kao isSelected 
 	public boolean isSelected()
-	{ 
+	{
 		return selected;
 	}
-	public void setSelected(boolean newSelected)
+	
+	public void setSelected(boolean newSelected) 
 	{
-	  selected= newSelected;
+		selected=newSelected;
+		
+		
 	}
+	
+	
+	
+	
 }
