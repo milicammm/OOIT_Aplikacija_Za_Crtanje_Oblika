@@ -48,7 +48,7 @@ public class Variables {
         	 number--;
          }
          System.out.println("Faktorijel broja 5 je" + factoriel);
-	}
+        
 	     //Zadatak 3 - Svi neparni brojevi manji od 10
 	  
 	     for(int i=0;i<10;i++)
@@ -56,4 +56,5 @@ public class Variables {
 	    	 if(i%2==1)
 	    		 System.out.println(i);
 	     }
+	}
 }
