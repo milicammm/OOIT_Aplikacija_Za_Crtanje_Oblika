@@ -1,10 +1,12 @@
 package geometry;
 
-public class Circle {
+import java.awt.Graphics;
+
+public class Circle extends Shape {
 	
 	private Point center;
 	private int radius;
-	private boolean selected;
+	
 	
 	public Circle() {
 		
@@ -81,15 +83,14 @@ public class Circle {
 	{
 		this.radius=radius;
 	}
+	//Crtanje kruga
+	//Parametre gledamo kao delove kvadrata opisanog oko kruga
+	@Override
+	public void draw(Graphics g) {
+		g.drawOval(center.getX()-radius,center.getY()-radius,2*radius,2*radius);
+		
+	}
 	
-	public boolean isSelected()
-	{
-		return selected;
-	}
-	public void setSelected(boolean selected)
-	{
-		this.selected=selected;
-	}
 	
 }
 

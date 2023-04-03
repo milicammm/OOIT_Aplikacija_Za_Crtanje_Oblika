@@ -1,10 +1,12 @@
 package geometry;
 
-public class Point{
+import java.awt.Graphics;
+
+public class Point extends Shape{
 	private int x;
 	private int y;
-	private boolean selected;
 	
+	//konstruktori
 	public Point() {
 		
 	}
@@ -31,7 +33,7 @@ public class Point{
 		return "("+x+ ","+y+")"; //(x,y)
 	}
 	
-	//Override- Redefinisanje metode equals
+	//Override-Redefisanje metode equals
 	
 	public boolean equals(Object obj) {
 		if(obj instanceof Point) {
@@ -61,9 +63,7 @@ public class Point{
 	public void setX(int x)
 	{
 		this.x=x;
-		
 	}
-	
 	public int getY() 
 	{
 		return y;
@@ -72,19 +72,17 @@ public class Point{
 	{
 		this.y=y;
 	}
+     
+	//Tacka se crta kao horizontalna i vertikalna linija onako ukrstene 
+	@Override  //idem na onu sijalicu i kliknem ono dodaj neimplementirane metode
+	public void draw(Graphics g) {
+		
+		g.drawLine(x-2, y, x+2, y); //horizontalna linija 
+		g.drawLine(x,y-2,x,y+2); //vertikalna linija
+	}
 	
    // Kod boolean promenljivih get metodu pisemo kao isSelected 
-	public boolean isSelected()
-	{
-		return selected;
-	}
-	
-	public void setSelected(boolean newSelected) 
-	{
-		selected=newSelected;
-		
-		
-	}
+
 	
 	
 	
