@@ -5,6 +5,7 @@ import java.awt.Graphics;
 public class Point extends Shape{
 	private int x;
 	private int y;
+    // ovo smo brisali kod svih private boolean selected;
 	
 	//konstruktori
 	public Point() {
@@ -54,24 +55,33 @@ public class Point extends Shape{
 		return this.distance(x, y) <=2; //udaljenost centra nase tacke od klika maksimalno 2
 	}
 	
-	//METODE PRISTUPA
-	public int getX() 
-	{
+	//METODE PRISTUPA GET I SET 
+	
+	public int getX() {
 		return x;
 	}
 	
-	public void setX(int x)
+   public void setX(int newX)
+   {
+	   x=newX;
+   }
+   public int getY()
+   {
+	   return y;
+   }
+   public void setY(int newY)
+   {
+	   y=newY;
+   }
+	 /* OVO SMO BRISALI KOD SVIH 
+	  * public boolean isSelected()
 	{
-		this.x=x;
+		return selected;
 	}
-	public int getY() 
+	public void setSelected(boolean newSelected)
 	{
-		return y;
-	}
-	public void setY(int y)
-	{
-		this.y=y;
-	}
+		selected=newSelected;
+	}*/ 
      
 	//Tacka se crta kao horizontalna i vertikalna linija onako ukrstene 
 	@Override  //idem na onu sijalicu i kliknem ono dodaj neimplementirane metode

@@ -69,15 +69,17 @@ public class Rectangle extends Shape {
 					&& y<= upperLeftPoint.getY() + height);
 		}
 		
-	//METODE PRISTUPA 
-	
+	//METODE PRISTUPA GET I SET
+		
 	public Point getUpperLeftPoint()
 	{
 		return upperLeftPoint;
 	}
+	
 	public void setUpperLeftPoint(Point upperLeftPoint)
 	{
 		this.upperLeftPoint=upperLeftPoint;
+		
 	}
 	
 	public int getWidth()
@@ -85,7 +87,6 @@ public class Rectangle extends Shape {
 		return width;
 	}
 	
-
 	public void setWidth(int width)
 	{
 		this.width=width;
@@ -95,11 +96,13 @@ public class Rectangle extends Shape {
 	{
 		return height;
 	}
+	
 	public void setHeight(int height)
 	{
-	    this.height=height;	
+		this.height=height;
 	}
-
+	
+	
 	//Crtanje pravougaonika
 	@Override
 	public void draw(Graphics g) {

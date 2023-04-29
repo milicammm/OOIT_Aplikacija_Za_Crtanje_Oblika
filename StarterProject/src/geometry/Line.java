@@ -57,24 +57,25 @@ public class Line extends Shape {
 
   //METODE PRISTUPA 
 	 
-	public Point getStartPoint() 
-	{
-		return startPoint;
-	}
-	public void setStartPoint(Point startPoint) 
-	{
-		this.startPoint=startPoint;
-	}
-	
-	public Point getEndPoint()
-	{
-		return endPoint;
-		
-	}
-	public void setEndPoint(Point endPoint)
-	{
-		this.endPoint=endPoint;
-	}
+   public Point getStartPoint()
+   {
+	   return startPoint;
+   }
+   
+   public void setStartPoint(Point startPoint)
+   {
+	   this.startPoint =startPoint;
+   }
+   
+   public Point getEndPoint()
+   {
+	   return endPoint;
+   }
+   
+   public void setEndPoint(Point endPoint)
+   {
+	   this.endPoint= endPoint;
+   }
 	
 	//Crtanje linje
 	@Override

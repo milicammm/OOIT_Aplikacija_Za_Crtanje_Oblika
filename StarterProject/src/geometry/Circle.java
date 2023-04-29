@@ -65,7 +65,8 @@ public class Circle extends Shape {
 	
 		
 		
-	//METODE PRISTUPA
+	//METODE PRISTUPA GET I SET
+	
 	public Point getCenter()
 	{
 		return center;
@@ -73,6 +74,7 @@ public class Circle extends Shape {
 	public void setCenter(Point center)
 	{
 		this.center=center;
+		
 	}
 	
 	public int getRadius()
@@ -83,6 +85,9 @@ public class Circle extends Shape {
 	{
 		this.radius=radius;
 	}
+	
+   //SELECTED SMO OBRISALI 	
+	
 	//Crtanje kruga
 	//Parametre gledamo kao delove kvadrata opisanog oko kruga
 	@Override
