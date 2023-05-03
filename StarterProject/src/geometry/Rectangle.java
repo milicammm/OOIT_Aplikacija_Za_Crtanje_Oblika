@@ -8,26 +8,27 @@ public class Rectangle extends Shape {
 	private int width;
 	private int height;
  
+	//KONSTRUKTORI 
 	
-	public Rectangle() {
-		
+	public Rectangle()
+	{
+		 
 	}
-	
-	public Rectangle(Point upperLeftPoint, int width, int height) {
-		
-		this.upperLeftPoint = upperLeftPoint;
-		this.width = width;
-		this.height = height;
-	}
-
-	public Rectangle(Point upperLeftPoint, int width, int height, boolean selected) {
-		
-		this.upperLeftPoint = upperLeftPoint;
-		this.width = width;
-		this.height = height;
-		this.selected = selected;
-	}
-
+    public Rectangle(Point upperLeftPoint, int width, int height) {
+    	
+    	this.upperLeftPoint=upperLeftPoint;
+    	this.width=width;
+    	this.height=height; 
+  
+    }
+    
+    public Rectangle(Point upperLeftPoint, int width, int height, boolean selected) {
+    	this.upperLeftPoint=upperLeftPoint;
+    	this.height =height;
+    	this.width=width;
+    	this.selected=selected; 
+    	
+    }
 	//POVRSINA PRAVOUGAONIKA P=width*height
 	 
 	public int area()
@@ -42,33 +43,42 @@ public class Rectangle extends Shape {
 		return 2*(width+height);
 	}
 	
+   //REDEFINISANJE toString
+	
 	public String toString() {
-		return "Upper left point:" + upperLeftPoint + ", width: "+ width +", height: "+ height;
-		// Upper left point (x,y), width: width, height: height
+		return "Upper left point: " + upperLeftPoint + ", widht= "+
+									width + ",height= "+ height; 
+		//Upper left point :(x,y), width = ,height=
 	}
 	
 	// Override - Redefinisanje metode equals
 	
-	public boolean equals(Object obj) {
-		if(obj instanceof Rectangle){
-			Rectangle pomocna=(Rectangle) obj;
-			if(this.upperLeftPoint.equals(pomocna.upperLeftPoint)&& width==pomocna.width && height==pomocna.height)
+	public boolean equals(Object obj){
+		if(obj instanceof Rectangle)
+		{
+			Rectangle pomocna= (Rectangle) obj;
+
+			if(this.upperLeftPoint.equals(pomocna.upperLeftPoint)&& height==pomocna.height 
+					&& width==pomocna.width) // ovo je kao .equals jer nije u ovoj klasi nego nasledjuje iz
+				                              //point to sam sama skontala moram proveriti jel tako dobro je
 				return true;
 			else
-				return false; 
-		}else
+				return false;
+		}
+		else
 			return false;
 	}
 	
 	//Metoda contains za selektovanje da li  sadrzi ili ne
 	
-		public boolean contains(int x,int y) {
-			return (x >= upperLeftPoint.getX()
-					&& x<= upperLeftPoint.getX()+width 
-					&& y>= upperLeftPoint.getY() 
-					&& y<= upperLeftPoint.getY() + height);
+		public boolean contains(int x, int y) {
+			
+			return(x>=upperLeftPoint.getX()
+					 && x<=upperLeftPoint.getY()
+					 && y>=upperLeftPoint.getY()
+					 && y<= upperLeftPoint.getY() +height
+					);
 		}
-		
 	//METODE PRISTUPA GET I SET
 		
 	public Point getUpperLeftPoint()

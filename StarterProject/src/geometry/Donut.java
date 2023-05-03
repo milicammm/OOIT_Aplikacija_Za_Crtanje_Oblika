@@ -7,6 +7,7 @@ public class Donut extends Circle {
 	
 	private int innerRadius; //poluprecnik unutrasnjeg kruga
 	
+	//Konstruktori 
 	public Donut() {
 		
 	}
@@ -32,7 +33,6 @@ public class Donut extends Circle {
 		return super.circumference()+2*innerRadius*Math.PI ;
 	}
 	
-
 	@Override
 	public String toString() {
 		//Center : (x,y), radius=55, innerRadius=44
@@ -45,7 +45,7 @@ public class Donut extends Circle {
 			Donut pomocna=(Donut)obj;
 			if(getCenter().equals(pomocna.getCenter())
 					&& this.getRadius()==pomocna.getRadius()
-					&&this.innerRadius==pomocna.innerRadius)//nema yagrade jer je inner radius ovde definisan, a radius je u cricle 
+					&&this.innerRadius==pomocna.innerRadius)//nema zagrade jer je inner radius ovde definisan, a radius je u cricle 
 			return true;		
 		else 
 			return false;

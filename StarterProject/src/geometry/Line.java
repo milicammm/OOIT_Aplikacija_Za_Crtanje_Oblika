@@ -7,20 +7,23 @@ public class Line extends Shape {
 	private Point startPoint;
 	private Point endPoint;
 	
+	//Konstruktori
 	
-	public 	Line()
-	{
+	public Line() {
 		
 	}
-	public Line(Point startPoint, Point endPoint)
+	
+	public Line( Point startPoint, Point endPoint)
 	{
 		this.startPoint=startPoint;
-		this.endPoint=endPoint;
+		this.endPoint=endPoint;	
 	}
-	public Line(Point startPoint, Point endPoint, boolean selected)
-	{
-		this(startPoint, endPoint);
-		this.selected=selected;
+	
+	public Line ( Point startPoint, Point endPoint, boolean selected) {
+		this.startPoint=startPoint;
+		this.endPoint=endPoint;
+		this.selected=selected; 
+		
 	}
 	
 	public double length() {
@@ -28,23 +31,26 @@ public class Line extends Shape {
 		return startPoint.distance(endPoint.getX(),endPoint.getY());
 	}
 	
+	//Redefinisanje toString
+	
 	public String toString() {
-		return startPoint +"-->"+ endPoint; // (x,y)-->(xEnd,yEnd)
+		return startPoint + "-->"+ endPoint; //(x,y)-->(xEnd,yEnd)
+		
 	}
 	
 	//Override - Redefinisanje metode equals
 	
-	public boolean equals(Object obj) {
-		
-		if(obj instanceof Line) {
-			Line pomocna=(Line) obj;
-			if(this.startPoint.equals(pomocna.startPoint)&& 
-					endPoint.equals(pomocna.endPoint))
+	public boolean equals(Object obj)
+	{
+		if(obj instanceof Line) 
+		{
+			Line pomocna=(Line)obj;
+			if(this.startPoint.equals(pomocna.startPoint) &&this.endPoint.equals(pomocna.endPoint))
 				return true;
 			else
 				return false;
-			
-		}else
+		}
+		else 
 			return false;
 	}
 	

@@ -3,23 +3,27 @@ package geometry;
 import java.awt.Graphics;
 
 public class Point extends Shape{
+	
 	private int x;
 	private int y;
     // ovo smo brisali kod svih private boolean selected;
 	
 	//konstruktori
+	
 	public Point() {
 		
 	}
 	
-	public Point(int x,int y){
+	public Point(int x, int y) {
 		this.x=x;
 		this.y=y;
-		
 	}
-	public Point (int x,int y, boolean selected){
+	
+	public Point(int x,int y, boolean selected) //nasledjivanje prethodnog konstruktora 
+	{
 		this(x,y);
 		this.selected=selected;
+
 	}
 	
 	public double distance(int x2, int y2) {
@@ -30,30 +34,35 @@ public class Point extends Shape{
 		
 	}
 	
+	//Redefinisanje toString u metodu koja se nasledjuje iz klase object
+		
 	public String toString() {
-		return "("+x+ ","+y+")"; //(x,y)
+		return "(" +x + ","+y+")"; //(x,y)
 	}
 	
 	//Override-Redefisanje metode equals
 	
-	public boolean equals(Object obj) {
-		if(obj instanceof Point) {
-			Point pomocna= (Point)obj;
-			
-			if(this.x==pomocna.x && this.y==pomocna.y) 
+	public boolean equals (Object obj) {
+		
+		if(obj instanceof Point) 
+		{
+			Point pomocna= (Point) obj;
+			if(this.x==pomocna.x && this.y==pomocna.y)
 				return true;
-			else 
-				return false;
-			
-		}else
+			else
+				return false;	
+		}
+		else 
 			return false;
 	}
 	
 	//Metoda contains za selektovanje da li  sadrzi ili ne
 	
-	public boolean contains(int x,int y) {
-		return this.distance(x, y) <=2; //udaljenost centra nase tacke od klika maksimalno 2
-	}
+	 public boolean contains(int x, int y)
+	 {
+		 return this.distance(x, y)<=2; //udaljenost centra od nase tacke, klika maksimalno 2
+	 }
+		
 	
 	//METODE PRISTUPA GET I SET 
 	
