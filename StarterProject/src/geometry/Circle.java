@@ -101,10 +101,35 @@ public class Circle extends Shape {
 	//Crtanje kruga
 	//Parametre gledamo kao delove kvadrata opisanog oko kruga
 	@Override
-	public void draw(Graphics g) {
-		g.drawOval(center.getX()-radius,center.getY()-radius,2*radius,2*radius);
+	public void draw(Graphics g)
+	{
+		g.drawOval(center.getX()-radius, center.getY()-radius, 2*radius, 2*radius);
+	}
+	
+	//Vezba 7 interfejsi
+	
+	// Moveable 
+	
+	public void moveTo(int x, int y) {
+		this.center.moveTo(x, y);
 		
 	}
+	
+	public void moveBy(int byX, int byY)
+	{
+		this.center.moveBy(byX, byY);
+	}
+	
+	//Comparable
+	
+	public int compareTo(Object o) 
+	{
+		if(o instanceof Circle)
+			return (int) (this.area()- ((Circle)o).area());
+		return 0;
+					
+	}
+	
 	
 	
 }

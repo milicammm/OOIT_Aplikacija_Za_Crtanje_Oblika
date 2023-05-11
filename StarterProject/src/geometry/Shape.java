@@ -2,9 +2,9 @@ package geometry;
 
 import java.awt.Graphics;
 
-public abstract class Shape {
+public abstract class Shape implements Moveable, Comparable{
 	
-	protected boolean selected; //sve klase u geometry paketu vide ovo
+	protected boolean selected; //sve klase u geometry paketu vide ovo posto je protected 
 	
 	//Apstraktne metode 
 	
@@ -14,25 +14,26 @@ public abstract class Shape {
 	
 	
 	//konstruktori
+    
 	public Shape() {
 		
 	}
-
+	
 	public Shape(boolean selected) {
 		this.selected=selected;
 	}
 	
 	//get i set metode 
-	public boolean isSelected()
-	{
-		return selected;
-	}
-	
-	public void setSelected(boolean newSelected) 
-	{
-		selected=newSelected;
-		
-	}
+
+	 public boolean isSelected()
+	 {
+		 return selected;
+	 }
+	 
+	 public void setSelected(boolean selected) {
+		 
+		 this.selected=selected;
+	 }
 	
 
 }

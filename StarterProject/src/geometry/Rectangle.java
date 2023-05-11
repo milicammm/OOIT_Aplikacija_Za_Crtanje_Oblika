@@ -117,8 +117,33 @@ public class Rectangle extends Shape {
 	@Override
 	public void draw(Graphics g) {
 		g.drawRect(upperLeftPoint.getX(), upperLeftPoint.getY(), width, height);
+	}
+
+	//Vezbe 7 interfejsi
+	
+	//Moveable
+	
+	public void moveTo(int x, int y) {
+		this.upperLeftPoint.moveTo(x,y);
 		
 	}
+	
+	public void moveBy(int byX, int byY) {
+		this.upperLeftPoint.moveBy(byX, byY);
+		
+	}
+	
+	//Comparable
+	//mora da vraca neku int vrednost 
+	public int compareTo(Object o) {
+		if(o instanceof Rectangle)
+			return (int)(this.area()-((Rectangle)o).area());
+		return 0;
+	}
+	
+	
+	
+	
 	
 	
 	

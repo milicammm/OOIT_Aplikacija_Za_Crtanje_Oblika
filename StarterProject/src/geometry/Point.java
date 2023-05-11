@@ -92,16 +92,47 @@ public class Point extends Shape{
 		selected=newSelected;
 	}*/ 
      
-	//Tacka se crta kao horizontalna i vertikalna linija onako ukrstene 
+	//Tacka se crta kao horizontalna i vertikalna linija onako ukrstene +
 	@Override  //idem na onu sijalicu i kliknem ono dodaj neimplementirane metode
 	public void draw(Graphics g) {
+		g.drawLine(x-2, y, x+2, y); //horizontalna linija
+		g.drawLine(x,y-2,x,y+2); // vertikalna linija 	
+	}
+
+	//Vezbe 7 interfejsi
+	
+	//Moveable
+	public void moveTo(int x, int y) {
+		this.x=x;
+		this.y=y;
 		
-		g.drawLine(x-2, y, x+2, y); //horizontalna linija 
-		g.drawLine(x,y-2,x,y+2); //vertikalna linija
 	}
 	
-   // Kod boolean promenljivih get metodu pisemo kao isSelected 
-
+	public void moveBy(int byX, int byY) {
+		this.x+=byX;
+		this.y+=byY;
+		
+	}
+	
+	//Comparable 
+	public int compareTo(Object o) 
+	{
+		if(o instanceof Point)
+			return (int)(this.distance(0,0)-((Point)o).distance(0,0));
+		return 0;
+	}
+  
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	
 	
