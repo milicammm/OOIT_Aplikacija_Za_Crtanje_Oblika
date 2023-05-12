@@ -1,6 +1,7 @@
 package geometry;
 
 import java.awt.Graphics;
+import java.awt.Color;
 
 public class Rectangle extends Shape {
 
@@ -116,7 +117,17 @@ public class Rectangle extends Shape {
 	//Crtanje pravougaonika
 	@Override
 	public void draw(Graphics g) {
+		g.setColor(Color.black);
 		g.drawRect(upperLeftPoint.getX(), upperLeftPoint.getY(), width, height);
+		
+		if(selected)
+		{
+			g.setColor(Color.blue);
+			g.drawRect(upperLeftPoint.getX()-2,upperLeftPoint.getY()-2,4,4);//gore levo
+			g.drawRect(upperLeftPoint.getX()+width-2,upperLeftPoint.getY()-2,4,4); //gore desno
+			g.drawRect(upperLeftPoint.getX()-2,upperLeftPoint.getY()+height-2,4,4); //dole levo
+			g.drawRect(upperLeftPoint.getX()+width-2,upperLeftPoint.getY()+height-2,4,4); //dole desno
+		}
 	}
 
 	//Vezbe 7 interfejsi

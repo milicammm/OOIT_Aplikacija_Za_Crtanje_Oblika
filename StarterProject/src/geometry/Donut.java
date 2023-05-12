@@ -1,6 +1,7 @@
 package geometry;
 
 import java.awt.Graphics;
+import java.awt.Color;
 
 //extends - nasledjivanje od nadredjene klase circle, posto se kao donut sastoji od tog kruga 
 public class Donut extends Circle {
@@ -83,8 +84,18 @@ public class Donut extends Circle {
 	public void draw(Graphics g)
 	{
 		super.draw(g);//nacrta spoljasnji krug
+		g.setColor(Color.black);
 		g.drawOval(getCenter().getX()-innerRadius, getCenter().getY() -innerRadius,
 				2*innerRadius, 2*innerRadius);
+		
+		if(selected)
+		{
+			g.setColor(Color.blue);
+			g.drawRect(getCenter().getX()-innerRadius-2,getCenter().getY()-2,4,4);
+			g.drawRect(getCenter().getX()+innerRadius-2, getCenter().getY()-2,4,4);
+			g.drawRect(getCenter().getX()-2, getCenter().getY()-innerRadius,4, 4);
+			g.drawRect(getCenter().getX()-2,getCenter().getY()+ innerRadius,4,4);
+		}
 	}
 
 	//Vezba 7 interfejsi

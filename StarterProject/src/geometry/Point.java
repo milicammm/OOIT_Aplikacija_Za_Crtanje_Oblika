@@ -1,6 +1,7 @@
 package geometry;
 
 import java.awt.Graphics;
+import java.awt.Color;
 
 public class Point extends Shape{
 	
@@ -95,8 +96,15 @@ public class Point extends Shape{
 	//Tacka se crta kao horizontalna i vertikalna linija onako ukrstene +
 	@Override  //idem na onu sijalicu i kliknem ono dodaj neimplementirane metode
 	public void draw(Graphics g) {
+		g.setColor(Color.black);
 		g.drawLine(x-2, y, x+2, y); //horizontalna linija
 		g.drawLine(x,y-2,x,y+2); // vertikalna linija 	
+		
+		if(selected)
+		{
+			g.setColor(Color.blue);
+			g.drawRect(x-2, y-2, 4, 4);
+		}
 	}
 
 	//Vezbe 7 interfejsi

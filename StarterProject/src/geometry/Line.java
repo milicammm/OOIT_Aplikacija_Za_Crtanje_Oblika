@@ -1,6 +1,7 @@
 package geometry;
 
 import java.awt.Graphics;
+import java.awt.Color;
 
 public class Line extends Shape {
 	
@@ -87,8 +88,17 @@ public class Line extends Shape {
 	@Override
 	public void draw(Graphics g)
 	{
+		g.setColor(Color.black);
 		g.drawLine(startPoint.getX(), startPoint.getY(), endPoint.getX(), endPoint.getY());
-
+       
+		// vezba 8
+		if(selected)
+		{
+			g.setColor(Color.black);
+			g.drawRect(startPoint.getX()-2, startPoint.getY()-2, 4, 4);
+			g.drawRect(endPoint.getX()-2, endPoint.getX()-2, 4, 4);
+		}
+		
 	}
 	
 	// Vezbe 7 interfejsi

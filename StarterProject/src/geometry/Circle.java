@@ -1,6 +1,7 @@
 package geometry;
 
 import java.awt.Graphics;
+import java.awt.Color;
 
 public class Circle extends Shape {
 	
@@ -91,8 +92,17 @@ public class Circle extends Shape {
 	{
 		return radius;
 	}
-	public void setRadius(int radius)
+	/*public void setRadius(int radius)
 	{
+		this.radius=radius;
+	}*/
+	
+	//Redefinisano iz 8 vezbe
+	
+	public void setRadius(int radius) throws Exception
+	{
+		if(radius <0)
+			throw new Exception("Radius ne moze biti negativan broj!");
 		this.radius=radius;
 	}
 	
@@ -103,7 +113,20 @@ public class Circle extends Shape {
 	@Override
 	public void draw(Graphics g)
 	{
-		g.drawOval(center.getX()-radius, center.getY()-radius, 2*radius, 2*radius);
+		g.setColor(Color.black);
+		g.drawOval(center.getX()-radius, 
+				center.getY()-radius, 2*radius, 2*radius);
+		
+		if(selected)
+		{
+			g.setColor(Color.blue);
+			g.drawRect(center.getX()-2,center.getY()-2,4,4);
+			g.drawRect(center.getX()-radius-2, center.getY()-2, 4, 4);
+			g.drawRect(center.getX()+radius-2,center.getY()-2,4,4);
+			g.drawRect(center.getX()-2, center.getY()-radius-2, 4, 4);
+			g.drawRect(center.getX()-2,center.getY()+radius-2,4,4);
+			
+		}
 	}
 	
 	//Vezba 7 interfejsi
