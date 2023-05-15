@@ -124,6 +124,7 @@ public class Test {
 	       
 	       
 	       //Vezbe 7
+	       
 	       System.out.println(point1);
 	       point1.moveTo(5,5);
 	       System.out.println("Nakon poziva metode moveTo: "+ point1);
