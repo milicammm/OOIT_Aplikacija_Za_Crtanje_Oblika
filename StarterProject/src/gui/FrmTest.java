@@ -27,10 +27,12 @@ public class FrmTest extends JFrame {
 
 	private JPanel contentPane;
 	private final ButtonGroup buttonGroup = new ButtonGroup();
-	private DefaultListModel dlm = new DefaultListModel(); //morali uvesti
-	private JLabel lblCrvena; //posto ne moze da se uradi akcija pre nego sto se deklarise moramo preaciti gore jlabel, jer je ta akcija iznad deklaracije
+	private DefaultListModel dlm = new DefaultListModel(); // morali uvesti
+	private JLabel lblCrvena; // posto ne moze da se uradi akcija pre nego sto se deklarise moramo preaciti
+								// gore jlabel, jer je ta akcija iznad deklaracije
 	private JLabel lblPlava;
 	private JLabel lblZuta;
+
 	/**
 	 * Launch the application.
 	 */
@@ -59,24 +61,25 @@ public class FrmTest extends JFrame {
 
 		setContentPane(contentPane);
 		contentPane.setLayout(new BorderLayout(0, 0));
-		
+
 		JPanel pnlCenter = new JPanel();
 		contentPane.add(pnlCenter, BorderLayout.CENTER);
 		GridBagLayout gbl_pnlCenter = new GridBagLayout();
-		gbl_pnlCenter.columnWidths = new int[]{0, 0, 0, 0};
-		gbl_pnlCenter.rowHeights = new int[]{0, 0, 0, 0, 0};
-		gbl_pnlCenter.columnWeights = new double[]{0.0, 0.0, 1.0, Double.MIN_VALUE};
-		gbl_pnlCenter.rowWeights = new double[]{0.0, 0.0, 0.0, 1.0, Double.MIN_VALUE};
+		gbl_pnlCenter.columnWidths = new int[] { 0, 0, 0, 0 };
+		gbl_pnlCenter.rowHeights = new int[] { 0, 0, 0, 0, 0 };
+		gbl_pnlCenter.columnWeights = new double[] { 0.0, 0.0, 1.0, Double.MIN_VALUE };
+		gbl_pnlCenter.rowWeights = new double[] { 0.0, 0.0, 0.0, 1.0, Double.MIN_VALUE };
 		pnlCenter.setLayout(gbl_pnlCenter);
-		
-		JToggleButton tglbtnCrvena = new JToggleButton("Crvena"); //dodaje se kad se klikne dvaput na crvena button pa na action i actionPerformed
+
+		JToggleButton tglbtnCrvena = new JToggleButton("Crvena"); // dodaje se kad se klikne dvaput na crvena button pa
+																	// na action i actionPerformed
 		tglbtnCrvena.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				lblCrvena.setForeground(Color.red);//boja teksta, a background pozadina
+				lblCrvena.setForeground(Color.red);// boja teksta, a background pozadina
 				lblPlava.setForeground(Color.black);
 				lblZuta.setForeground(Color.black);
-				dlm.addElement(lblCrvena.getText()); //da kad se klikne na dugme i boju upise u listu tamo 
-				
+				dlm.addElement(lblCrvena.getText()); // da kad se klikne na dugme i boju upise u listu tamo
+
 			}
 		});
 		buttonGroup.add(tglbtnCrvena);
@@ -85,14 +88,14 @@ public class FrmTest extends JFrame {
 		gbc_tglbtnCrvena.gridx = 0;
 		gbc_tglbtnCrvena.gridy = 0;
 		pnlCenter.add(tglbtnCrvena, gbc_tglbtnCrvena);
-		
-	    lblCrvena = new JLabel("Crvena"); //obrisala jlabel
+
+		lblCrvena = new JLabel("Crvena"); // obrisala jlabel
 		GridBagConstraints gbc_lblCrvena = new GridBagConstraints();
 		gbc_lblCrvena.insets = new Insets(0, 0, 5, 5);
 		gbc_lblCrvena.gridx = 1;
 		gbc_lblCrvena.gridy = 0;
 		pnlCenter.add(lblCrvena, gbc_lblCrvena);
-		
+
 		JToggleButton tglbtnPlava = new JToggleButton("Plava");
 		tglbtnPlava.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -108,14 +111,14 @@ public class FrmTest extends JFrame {
 		gbc_tglbtnPlava.gridx = 0;
 		gbc_tglbtnPlava.gridy = 1;
 		pnlCenter.add(tglbtnPlava, gbc_tglbtnPlava);
-		
+
 		lblPlava = new JLabel("Plava");
 		GridBagConstraints gbc_lblPlava = new GridBagConstraints();
 		gbc_lblPlava.insets = new Insets(0, 0, 5, 5);
 		gbc_lblPlava.gridx = 1;
 		gbc_lblPlava.gridy = 1;
 		pnlCenter.add(lblPlava, gbc_lblPlava);
-		
+
 		JToggleButton tglbtnZuta = new JToggleButton("Zuta");
 		tglbtnZuta.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -131,47 +134,44 @@ public class FrmTest extends JFrame {
 		gbc_tglbtnZuta.gridx = 0;
 		gbc_tglbtnZuta.gridy = 2;
 		pnlCenter.add(tglbtnZuta, gbc_tglbtnZuta);
-		
+
 		lblZuta = new JLabel("Zuta");
 		GridBagConstraints gbc_lblZuta = new GridBagConstraints();
 		gbc_lblZuta.insets = new Insets(0, 0, 5, 5);
 		gbc_lblZuta.gridx = 1;
 		gbc_lblZuta.gridy = 2;
 		pnlCenter.add(lblZuta, gbc_lblZuta);
-		
+
 		JScrollPane scrollPane = new JScrollPane();
 		GridBagConstraints gbc_scrollPane = new GridBagConstraints();
 		gbc_scrollPane.fill = GridBagConstraints.BOTH;
 		gbc_scrollPane.gridx = 2;
 		gbc_scrollPane.gridy = 3;
 		pnlCenter.add(scrollPane, gbc_scrollPane);
-		
+
 		JList lstBoje = new JList();
 		scrollPane.setViewportView(lstBoje);
 		lstBoje.setModel(dlm);
-		
+
 		JPanel pnlNorth = new JPanel();
 		pnlNorth.setBackground(new Color(0, 255, 128));
 		contentPane.add(pnlNorth, BorderLayout.NORTH);
-		
+
 		JLabel lblNaslov = new JLabel("Zadatak1");
 		lblNaslov.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 16));
 		pnlNorth.add(lblNaslov);
-		
+
 		JPanel pnlSouth = new JPanel();
 		contentPane.add(pnlSouth, BorderLayout.SOUTH);
-		
+
 		JButton btnKlik = new JButton("Klikni me ");
 		btnKlik.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				JOptionPane.showMessageDialog(null,"Antistres dugme :)","Poruka",JOptionPane.INFORMATION_MESSAGE);
+				JOptionPane.showMessageDialog(null, "Antistres dugme :)", "Poruka", JOptionPane.INFORMATION_MESSAGE);
 			}
 		});
 		pnlSouth.add(btnKlik);
-		
-		
-		
-		
+
 	}
 
 }

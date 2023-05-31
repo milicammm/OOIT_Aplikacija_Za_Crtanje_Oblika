@@ -103,7 +103,7 @@ public class Point extends Shape{
 		if(selected)
 		{
 			g.setColor(Color.blue);
-			g.drawRect(x-2, y-2, 4, 4);
+			g.drawRect(x-2, y-2, 4, 4); 
 		}
 	}
 
