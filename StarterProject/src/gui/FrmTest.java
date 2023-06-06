@@ -22,7 +22,11 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.Font;
 import javax.swing.JButton;
-
+import javax.swing.JComboBox;
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.JTextField;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 public class FrmTest extends JFrame {
 
 	private JPanel contentPane;
@@ -33,6 +37,8 @@ public class FrmTest extends JFrame {
 	private JLabel lblPlava;
 	private JLabel lblZuta;
 
+	private JTextField txtUnosBoje;
+    // 'master' of https://github.com/IIS-OOIT-2022-2023/IT8-2022MILICAMISAN.git
 	/**
 	 * Launch the application.
 	 */
@@ -65,10 +71,17 @@ public class FrmTest extends JFrame {
 		JPanel pnlCenter = new JPanel();
 		contentPane.add(pnlCenter, BorderLayout.CENTER);
 		GridBagLayout gbl_pnlCenter = new GridBagLayout();
+
 		gbl_pnlCenter.columnWidths = new int[] { 0, 0, 0, 0 };
 		gbl_pnlCenter.rowHeights = new int[] { 0, 0, 0, 0, 0 };
 		gbl_pnlCenter.columnWeights = new double[] { 0.0, 0.0, 1.0, Double.MIN_VALUE };
 		gbl_pnlCenter.rowWeights = new double[] { 0.0, 0.0, 0.0, 1.0, Double.MIN_VALUE };
+
+		gbl_pnlCenter.columnWidths = new int[]{0, 0, 0, 0};
+		gbl_pnlCenter.rowHeights = new int[]{0, 0, 0, 0, 0};
+		gbl_pnlCenter.columnWeights = new double[]{0.0, 1.0, 1.0, Double.MIN_VALUE};
+		gbl_pnlCenter.rowWeights = new double[]{0.0, 0.0, 0.0, 1.0, Double.MIN_VALUE};
+// branch 'master' of https://github.com/IIS-OOIT-2022-2023/IT8-2022MILICAMISAN.git
 		pnlCenter.setLayout(gbl_pnlCenter);
 
 		JToggleButton tglbtnCrvena = new JToggleButton("Crvena"); // dodaje se kad se klikne dvaput na crvena button pa
@@ -105,6 +118,26 @@ public class FrmTest extends JFrame {
 				dlm.addElement(lblPlava.getText());
 			}
 		});
+		
+		// unos onog teksta sa strane 
+		txtUnosBoje = new JTextField();
+		txtUnosBoje.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyPressed(KeyEvent e) {
+				if(e.getKeyCode()== KeyEvent.VK_ENTER)
+				{
+					dlm.addElement(txtUnosBoje.getText());
+					txtUnosBoje.setText("");
+				}
+			}
+		});
+		GridBagConstraints gbc_txtUnosBoje = new GridBagConstraints();
+		gbc_txtUnosBoje.insets = new Insets(0, 0, 5, 0);
+		gbc_txtUnosBoje.fill = GridBagConstraints.HORIZONTAL;
+		gbc_txtUnosBoje.gridx = 2;
+		gbc_txtUnosBoje.gridy = 0;
+		pnlCenter.add(txtUnosBoje, gbc_txtUnosBoje);
+		txtUnosBoje.setColumns(10);
 		buttonGroup.add(tglbtnPlava);
 		GridBagConstraints gbc_tglbtnPlava = new GridBagConstraints();
 		gbc_tglbtnPlava.insets = new Insets(0, 0, 5, 5);
@@ -142,6 +175,49 @@ public class FrmTest extends JFrame {
 		gbc_lblZuta.gridy = 2;
 		pnlCenter.add(lblZuta, gbc_lblZuta);
 
+		
+		JLabel lblDodajBoju = new JLabel("Dodaj boju: ");
+		GridBagConstraints gbc_lblDodajBoju = new GridBagConstraints();
+		gbc_lblDodajBoju.anchor = GridBagConstraints.EAST;
+		gbc_lblDodajBoju.insets = new Insets(0, 0, 0, 5);
+		gbc_lblDodajBoju.gridx = 0;
+		gbc_lblDodajBoju.gridy = 3;
+		pnlCenter.add(lblDodajBoju, gbc_lblDodajBoju);
+		
+		JComboBox cmbDodajBoju = new JComboBox(); //ovo smo dodali,kao da bi nam bile boje dodate u listu
+		cmbDodajBoju.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				dlm.addElement(cmbDodajBoju.getSelectedItem().toString());
+				switch(cmbDodajBoju.getSelectedItem().toString())
+				{
+				case "Zelena": 
+					lblDodajBoju.setForeground(Color.green);
+					break;
+				case "Narandzasta":
+					lblDodajBoju.setForeground(Color.orange);
+					break;
+				case "Ljubicasta" :
+					lblDodajBoju.setForeground(Color.magenta);
+					break;
+					default :
+						lblDodajBoju.setForeground( Color.black);
+						break;
+				
+			} 
+		}
+			
+		}
+
+);
+		cmbDodajBoju.setModel(new DefaultComboBoxModel(new String[] {"Zelena", "Narandzasta", "Ljubicasta"}));
+		GridBagConstraints gbc_cmbDodajBoju = new GridBagConstraints();
+		gbc_cmbDodajBoju.insets = new Insets(0, 0, 0, 5);
+		gbc_cmbDodajBoju.fill = GridBagConstraints.HORIZONTAL;
+		gbc_cmbDodajBoju.gridx = 1;
+		gbc_cmbDodajBoju.gridy = 3;
+		pnlCenter.add(cmbDodajBoju, gbc_cmbDodajBoju);
+		
+//>>>>>>> branch 'master' of https://github.com/IIS-OOIT-2022-2023/IT8-2022MILICAMISAN.git
 		JScrollPane scrollPane = new JScrollPane();
 		GridBagConstraints gbc_scrollPane = new GridBagConstraints();
 		gbc_scrollPane.fill = GridBagConstraints.BOTH;
@@ -172,6 +248,58 @@ public class FrmTest extends JFrame {
 		});
 		pnlSouth.add(btnKlik);
 
+		
+		JButton btnDodajBoju = new JButton("Dodaj boju");
+		btnDodajBoju.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				DlgTest dijalog= new DlgTest();
+				dijalog.setVisible(true);
+				if(dijalog.isOk()==true)
+				{
+					dlm.addElement(dijalog.getTxtRed().getText()+ " "+
+				dijalog.getTxtGreen().getText() + " "+ dijalog.getTxtBlue().getText());
+					
+				}
+			}
+		});
+		pnlSouth.add(btnDodajBoju);
+		
+		JButton btnIzmeniBoju = new JButton("Izmeni boju");
+		btnIzmeniBoju.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				DlgTest dijalog = new DlgTest();
+				try {
+				String [] splits=  dlm.getElementAt(lstBoje.getSelectedIndex()).toString().split(" "); //kad je split crveno dodam toString da ne bude 
+				dijalog.getTxtRed().setText(splits[0]);
+				dijalog.getTxtGreen().setText(splits[1]);
+				dijalog.getTxtBlue().setText(splits[2]);
+				dijalog.setVisible(true); //da se poojavi dijalog
+				
+				//znaci ako je potvrdjeno dodajem novi el
+				
+				if(dijalog.isOk()==true)
+				{
+					dlm.removeElementAt(lstBoje.getSelectedIndex()); //obrisati prethodno upisani el 
+					dlm.addElement(dijalog.getTxtRed().getText()+ " "+
+				dijalog.getTxtGreen().getText() + " "+ dijalog.getTxtBlue().getText());
+					
+				}
+				}
+				catch (Exception exc)
+				{
+					JOptionPane.showMessageDialog(null,"Selektuj adekvatnu boju:", "Upozorenje", JOptionPane.WARNING_MESSAGE);
+				}
+				
+		}
+			
+			
+		});
+		pnlSouth.add(btnIzmeniBoju);
+		
+		
+		
+		
+//>>>>>>> branch 'master' of https://github.com/IIS-OOIT-2022-2023/IT8-2022MILICAMISAN.git
 	}
 
 }

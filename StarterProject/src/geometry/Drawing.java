@@ -32,7 +32,6 @@ public class Drawing extends JPanel {
 		
 		// M slovo, sama vezbala kuci 
 		g.setColor(Color.blue);
-		Line l2=new Line(p1, new Point(150,200));
 		//l2.draw(g);
 		
 		Point p2=new Point(171,170);
