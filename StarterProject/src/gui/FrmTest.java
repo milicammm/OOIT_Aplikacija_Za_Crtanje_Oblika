@@ -59,7 +59,7 @@ public class FrmTest extends JFrame {
 	 * Create the frame.
 	 */
 	public FrmTest() {
-		setTitle("Moja prva aplikacija");
+		setTitle("Moja aplikacija");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
