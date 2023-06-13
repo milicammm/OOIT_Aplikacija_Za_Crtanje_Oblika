@@ -26,7 +26,7 @@ public class Donut extends Circle {
 	//Source pa override i onda oznacimo sta nam treba 
 	
 	@Override
-	public double area() {
+	public Double area() {
 		return super.area()- innerRadius *innerRadius * Math.PI;
 	}
 	@Override

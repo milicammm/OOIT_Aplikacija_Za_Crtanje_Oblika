@@ -27,7 +27,7 @@ public class Circle extends Shape {
 	
 	
 	//POVRSINA KRUGA (P=r^2PI)
-	public double area()
+	public Double area()
 	{
 		return radius*radius*Math.PI;
 	}
