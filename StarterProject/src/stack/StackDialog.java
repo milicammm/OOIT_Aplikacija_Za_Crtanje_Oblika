@@ -47,7 +47,7 @@ public class StackDialog extends JDialog {
 	public StackDialog() {
 		setModal(true);
 		setTitle("Milica Misan IT8/2022");
-		setBounds(100, 100, 450, 300);
+		setBounds(100, 100, 424, 300);
 		getContentPane().setLayout(new BorderLayout());
 		contentPanel.setBackground(new Color(255, 240, 245));
 		contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -58,15 +58,15 @@ public class StackDialog extends JDialog {
 		JLabel lblRadius = new JLabel("Add radius");
 		lblRadius.setForeground(new Color(219, 112, 147));
 		lblRadius.setHorizontalAlignment(SwingConstants.CENTER);
-		lblRadius.setFont(new Font("Segoe UI Black", Font.PLAIN, 12));
+		lblRadius.setFont(new Font("Segoe UI Black", Font.PLAIN, 14));
 		JLabel lblXCoordinate = new JLabel("Add x coordinate ");
 		lblXCoordinate.setForeground(new Color(219, 112, 147));
 		lblXCoordinate.setHorizontalAlignment(SwingConstants.CENTER);
-		lblXCoordinate.setFont(new Font("Segoe UI Black", Font.PLAIN, 12));
+		lblXCoordinate.setFont(new Font("Segoe UI Black", Font.PLAIN, 14));
 		JLabel lblYCoordinate = new JLabel("Add y coordinate ");
 		lblYCoordinate.setForeground(new Color(219, 112, 147));
 		lblYCoordinate.setHorizontalAlignment(SwingConstants.CENTER);
-		lblYCoordinate.setFont(new Font("Segoe UI Black", Font.PLAIN, 12));
+		lblYCoordinate.setFont(new Font("Segoe UI Black", Font.PLAIN, 14));
 		
 		txtXCoordinate = new JTextField();
 		txtXCoordinate.setColumns(10);
@@ -129,6 +129,7 @@ public class StackDialog extends JDialog {
 			getContentPane().add(buttonPane, BorderLayout.SOUTH);
 			{
 				JButton okButton = new JButton("OK");
+				okButton.setFont(new Font("Segoe UI Black", Font.PLAIN, 14));
 				okButton.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
 						 if(getTxtXCoordinate().getText().isEmpty()){
@@ -160,6 +161,7 @@ public class StackDialog extends JDialog {
 			}
 			{
 				JButton cancelButton = new JButton("Cancel");
+				cancelButton.setFont(new Font("Segoe UI Black", Font.PLAIN, 14));
 				cancelButton.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
 						dispose();

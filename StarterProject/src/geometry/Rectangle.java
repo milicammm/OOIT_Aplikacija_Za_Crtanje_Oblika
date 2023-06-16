@@ -8,6 +8,8 @@ public class Rectangle extends Shape {
 	private Point upperLeftPoint;
 	private int width;
 	private int height;
+	private Color innerColor;
+	private Color color;
  
 	//KONSTRUKTORI 
 	
@@ -15,8 +17,8 @@ public class Rectangle extends Shape {
 	{
 		 
 	}
-    public Rectangle(Point upperLeftPoint, int width, int height) {
-    	
+    public Rectangle(Point upperLeftPoint, int width, int height) 
+    {
     	this.upperLeftPoint=upperLeftPoint;
     	this.width=width;
     	this.height=height; 
@@ -28,6 +30,13 @@ public class Rectangle extends Shape {
     	this.height =height;
     	this.width=width;
     	this.selected=selected; 
+    	
+    }
+    public Rectangle(Point upperLeftPoint, int width, int height,boolean selected, Color color,Color innerColor)
+    {
+    	this(upperLeftPoint, width, height,selected);
+    	this.color=color;
+    	this.innerColor=innerColor;
     	
     }
 	//POVRSINA PRAVOUGAONIKA P=width*height
@@ -74,11 +83,8 @@ public class Rectangle extends Shape {
 	
 		public boolean contains(int x, int y) {
 			
-			return(x>=upperLeftPoint.getX()
-					 && x<=upperLeftPoint.getY()
-					 && y>=upperLeftPoint.getY()
-					 && y<= upperLeftPoint.getY() +height
-					);
+			return(x >= upperLeftPoint.getX() && x <= upperLeftPoint.getX() + width && y >=upperLeftPoint.getY()
+					&& y<= upperLeftPoint.getY() + height);
 		}
 	//METODE PRISTUPA GET I SET
 		
@@ -112,22 +118,29 @@ public class Rectangle extends Shape {
 	{
 		this.height=height;
 	}
+	public Color getInnerColor() {
+		return innerColor;
+	}
+	public void setInnerColor(Color innerColor) {
+		this.innerColor = innerColor;
+	}
 	
 	
 	//Crtanje pravougaonika
 	@Override
 	public void draw(Graphics g) {
-		g.setColor(Color.black);
-		g.drawRect(upperLeftPoint.getX(), upperLeftPoint.getY(), width, height);
-		
-		if(selected)
-		{
-			g.setColor(Color.blue);
-			g.drawRect(upperLeftPoint.getX()-2,upperLeftPoint.getY()-2,4,4);//gore levo
-			g.drawRect(upperLeftPoint.getX()+width-2,upperLeftPoint.getY()-2,4,4); //gore desno
-			g.drawRect(upperLeftPoint.getX()-2,upperLeftPoint.getY()+height-2,4,4); //dole levo
-			g.drawRect(upperLeftPoint.getX()+width-2,upperLeftPoint.getY()+height-2,4,4); //dole desno
+		g.setColor(color);
+        g.drawRect(upperLeftPoint.getX(), upperLeftPoint.getY(), width, height);
+        g.setColor(innerColor);
+        g.fillRect(upperLeftPoint.getX()+1, upperLeftPoint.getY()+1, width-1, height-1);
+		if(selected) {
+			g.setColor(Color.BLUE);
+			g.drawRect(upperLeftPoint.getX()-2, upperLeftPoint.getY()-2, 4,4); //gore levo
+			g.drawRect(upperLeftPoint.getX()+ width -2, upperLeftPoint.getY()-2, 4,4); //gore desno
+			g.drawRect(upperLeftPoint.getX()-2, upperLeftPoint.getY() + height -2, 4,4); //dole levo
+			g.drawRect(upperLeftPoint.getX() + width -2, upperLeftPoint.getY() + height -2, 4,4); //dole desno
 		}
+
 	}
 
 	//Vezbe 7 interfejsi
@@ -151,6 +164,14 @@ public class Rectangle extends Shape {
 			return (int)(this.area()-((Rectangle)o).area());
 		return 0;
 	}
+	
+	public Color getColor() {
+		return color;
+	}
+	public void setColor(Color color) {
+		this.color = color;
+	}
+
 	
 	
 	

@@ -46,23 +46,23 @@ public class SortDialog extends JDialog {
 	public SortDialog() {
 		setModal(true);
 		setTitle("Milica Misan IT8/2022");
-		setBounds(100, 100, 450, 300);
+		setBounds(100, 100, 357, 300);
 		getContentPane().setLayout(new BorderLayout());
-		contentPanel.setBackground(new Color(224, 255, 255));
+		contentPanel.setBackground(new Color(235, 231, 254));
 		contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
 		getContentPane().add(contentPanel, BorderLayout.NORTH);
 		JLabel lblInfo = new JLabel("Create a circle");
 		lblInfo.setBackground(new Color(0, 0, 0));
-		lblInfo.setForeground(new Color(30, 144, 255));
+		lblInfo.setForeground(new Color(153, 102, 255));
 		lblInfo.setFont(new Font("Segoe UI Black", Font.PLAIN, 26));
 		JLabel lblRadius = new JLabel("Add radius");
-		lblRadius.setForeground(new Color(30, 144, 255));
+		lblRadius.setForeground(new Color(153, 102, 255));
 		lblRadius.setFont(new Font("Segoe UI Black", Font.PLAIN, 13));
 		JLabel lblXCoordinate = new JLabel("Add x coordinate");
-		lblXCoordinate.setForeground(new Color(30, 144, 255));
+		lblXCoordinate.setForeground(new Color(153, 102, 255));
 		lblXCoordinate.setFont(new Font("Segoe UI Black", Font.PLAIN, 13));
 		JLabel lblYCoordinate = new JLabel("Add y coordinate");
-		lblYCoordinate.setForeground(new Color(30, 144, 255));
+		lblYCoordinate.setForeground(new Color(153, 102, 255));
 		lblYCoordinate.setFont(new Font("Segoe UI Black", Font.PLAIN, 13));
 		
 		txtRadius = new JTextField();
@@ -116,7 +116,7 @@ public class SortDialog extends JDialog {
 		contentPanel.setLayout(gl_contentPanel);
 		{
 			JPanel buttonPane = new JPanel();
-			buttonPane.setBackground(new Color(224, 255, 255));
+			buttonPane.setBackground(new Color(235, 231, 254));
 			buttonPane.setLayout(new FlowLayout(FlowLayout.RIGHT));
 			getContentPane().add(buttonPane, BorderLayout.SOUTH);
 			{
@@ -146,7 +146,7 @@ public class SortDialog extends JDialog {
 					}
 				});
 				okButton.setFont(new Font("Segoe UI Black", Font.PLAIN, 13));
-				okButton.setForeground(new Color(30, 144, 255));
+				okButton.setForeground(new Color(153, 102, 255));
 				okButton.setActionCommand("OK");
 				buttonPane.add(okButton);
 				getRootPane().setDefaultButton(okButton);
@@ -159,7 +159,7 @@ public class SortDialog extends JDialog {
 					}
 				});
 				cancelButton.setFont(new Font("Segoe UI Black", Font.PLAIN, 13));
-				cancelButton.setForeground(new Color(30, 144, 255));
+				cancelButton.setForeground(new Color(153, 102, 255));
 				cancelButton.setActionCommand("Cancel");
 				buttonPane.add(cancelButton);
 			}

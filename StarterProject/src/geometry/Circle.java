@@ -7,6 +7,8 @@ public class Circle extends Shape {
 	
 	private Point center;
 	private int radius;
+	private Color innerColor;
+	private Color color;
 	
 	//KONSTRUKTORI
 	
@@ -24,7 +26,14 @@ public class Circle extends Shape {
 		this(center, radius);
 		this.selected=selected;
 	}
-	
+	 
+	 public Circle(Point center,int radius,boolean selected,Color color, Color innerColor)
+	    {
+	    	this(center, radius, selected);
+	    	this.color=color;
+	    	this.innerColor=innerColor;
+	  	
+	    }
 	
 	//POVRSINA KRUGA (P=r^2PI)
 	public Double area()
@@ -113,10 +122,11 @@ public class Circle extends Shape {
 	@Override
 	public void draw(Graphics g)
 	{
-		g.setColor(Color.black);
-		g.drawOval(center.getX()-radius, 
-				center.getY()-radius, 2*radius, 2*radius);
-		
+	
+		g.setColor(color);
+        g.drawOval(center.getX() - radius, center.getY() - radius,2*radius, 2*radius);
+        g.setColor(innerColor);
+        g.fillOval(center.getX()-radius+1, center.getY()-radius+1,2*radius-2, 2*radius-2);
 		if(selected)
 		{
 			g.setColor(Color.blue);
@@ -152,9 +162,22 @@ public class Circle extends Shape {
 		return 0;
 					
 	}
-	
-	
-	
+
+	public Color getInnerColor() {
+		return innerColor;
+	}
+
+	public void setInnerColor(Color innerColor) {
+		this.innerColor = innerColor;
+	}
+
+	public Color getColor() {
+		return color;
+	}
+
+	public void setColor(Color color) {
+		this.color = color;
+	}
 }
 
 

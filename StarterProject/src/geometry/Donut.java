@@ -7,7 +7,8 @@ import java.awt.Color;
 public class Donut extends Circle {
 	
 	private int innerRadius; //poluprecnik unutrasnjeg kruga
-	
+	private Color innerColor;
+	private Color color;
 	//Konstruktori 
 	public Donut() {
 		
@@ -23,6 +24,14 @@ public class Donut extends Circle {
 		this.setInnerRadius(innerRadius);
 		
 	}
+	public Donut(Point center,int radius,boolean selected,int innerRadius,Color innerColor,Color color)
+    {
+        super(center,radius,selected,innerColor,color);
+        this.innerRadius=innerRadius;
+
+    }
+
+	
 	//Source pa override i onda oznacimo sta nam treba 
 	
 	@Override
@@ -84,10 +93,10 @@ public class Donut extends Circle {
 	public void draw(Graphics g)
 	{
 		super.draw(g);//nacrta spoljasnji krug
-		g.setColor(Color.black);
-		g.drawOval(getCenter().getX()-innerRadius, getCenter().getY() -innerRadius,
-				2*innerRadius, 2*innerRadius);
-		
+		g.setColor(Color.WHITE);
+        g.fillOval(getCenter().getX()-innerRadius+1, getCenter().getY()-innerRadius+1, 2*innerRadius -1, 2*innerRadius -1);
+        g.setColor(super.getColor());
+        g.drawOval(getCenter().getX() - innerRadius, getCenter().getY()-innerRadius,2*innerRadius, 2*innerRadius);
 		if(selected)
 		{
 			g.setColor(Color.blue);
@@ -110,10 +119,5 @@ public class Donut extends Circle {
 		
 					
 	}
-	
-	
-	
-	
-	
 
 }

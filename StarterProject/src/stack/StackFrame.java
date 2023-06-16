@@ -24,11 +24,15 @@ import java.awt.event.ActionEvent;
 import geometry.Circle;
 import geometry.Point;
 import java.util.Stack;
+import javax.swing.event.ChangeListener;
+import javax.swing.event.ChangeEvent;
 
 public class StackFrame extends JFrame {
 
 	private JPanel contentPane;
 	DefaultListModel <Circle> dlm = new DefaultListModel<Circle>();
+	private JToggleButton tglbtnPull = new JToggleButton("Pull element");
+	private JToggleButton tglbtnPush = new JToggleButton("Push element"); 
 
 	/**
 	 * Launch the application.
@@ -71,7 +75,15 @@ public class StackFrame extends JFrame {
 		lstStack.setModel(dlm);
 		
 		
-		JToggleButton tglbtnPush = new JToggleButton("Push element");
+
+		tglbtnPush.addChangeListener(new ChangeListener() {
+			public void stateChanged(ChangeEvent e) {
+				if(tglbtnPush.isSelected())
+				{
+					tglbtnPull.setSelected(false);
+				}
+			}
+		});
 		tglbtnPush.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				StackDialog stackDialog= new StackDialog();
@@ -98,9 +110,20 @@ public class StackFrame extends JFrame {
 			}
 		});
 		tglbtnPush.setForeground(new Color(219, 112, 147));
-		tglbtnPush.setFont(new Font("Segoe UI Black", Font.PLAIN, 12));
+		tglbtnPush.setFont(new Font("Segoe UI Black", Font.PLAIN, 14));
 		
-		JToggleButton tglbtnPull = new JToggleButton("Pull element");
+		//Toggle button pull
+		tglbtnPull.addChangeListener(new ChangeListener() {
+			public void stateChanged(ChangeEvent e) {
+				if(tglbtnPull.isSelected())
+				{
+					tglbtnPush.setSelected(false);
+				}
+				
+			}
+		});
+		
+
 		tglbtnPull.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
@@ -115,7 +138,7 @@ public class StackFrame extends JFrame {
 			}
 		});
 		tglbtnPull.setForeground(new Color(219, 112, 147));
-		tglbtnPull.setFont(new Font("Segoe UI Black", Font.PLAIN, 12));
+		tglbtnPull.setFont(new Font("Segoe UI Black", Font.PLAIN, 14));
 		
 		
 		GroupLayout gl_contentPane = new GroupLayout(contentPane);
@@ -131,23 +154,23 @@ public class StackFrame extends JFrame {
 							.addComponent(lblTitle, GroupLayout.PREFERRED_SIZE, 305, GroupLayout.PREFERRED_SIZE))
 						.addGroup(gl_contentPane.createSequentialGroup()
 							.addGap(149)
-							.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
-								.addComponent(tglbtnPull, GroupLayout.PREFERRED_SIZE, 115, GroupLayout.PREFERRED_SIZE)
-								.addComponent(tglbtnPush, GroupLayout.PREFERRED_SIZE, 115, GroupLayout.PREFERRED_SIZE))))
+							.addGroup(gl_contentPane.createParallelGroup(Alignment.TRAILING, false)
+								.addComponent(tglbtnPull, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+								.addComponent(tglbtnPush, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
 					.addContainerGap(49, Short.MAX_VALUE))
 		);
 		gl_contentPane.setVerticalGroup(
-				gl_contentPane.createParallelGroup(Alignment.LEADING)
-					.addGroup(gl_contentPane.createSequentialGroup()
-						.addComponent(lblTitle)
-						.addPreferredGap(ComponentPlacement.RELATED)
-						.addComponent(scrlPane, GroupLayout.PREFERRED_SIZE, 131, GroupLayout.PREFERRED_SIZE)
-						.addPreferredGap(ComponentPlacement.UNRELATED)
-						.addComponent(tglbtnPush)
-						.addPreferredGap(ComponentPlacement.RELATED, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-						.addComponent(tglbtnPull)
-						.addContainerGap())
-			);
+			gl_contentPane.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_contentPane.createSequentialGroup()
+					.addComponent(lblTitle)
+					.addPreferredGap(ComponentPlacement.RELATED)
+					.addComponent(scrlPane, GroupLayout.PREFERRED_SIZE, 131, GroupLayout.PREFERRED_SIZE)
+					.addPreferredGap(ComponentPlacement.UNRELATED)
+					.addComponent(tglbtnPush)
+					.addPreferredGap(ComponentPlacement.RELATED)
+					.addComponent(tglbtnPull)
+					.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+		);
 		contentPane.setLayout(gl_contentPane); 
 			
 		

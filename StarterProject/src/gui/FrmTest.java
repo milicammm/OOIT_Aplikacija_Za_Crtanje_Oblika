@@ -84,7 +84,7 @@ public class FrmTest extends JFrame {
 // branch 'master' of https://github.com/IIS-OOIT-2022-2023/IT8-2022MILICAMISAN.git
 		pnlCenter.setLayout(gbl_pnlCenter);
 
-		JToggleButton tglbtnCrvena = new JToggleButton("Crvena"); // dodaje se kad se klikne dvaput na crvena button pa
+		JToggleButton tglbtnCrvena = new JToggleButton("Crvena");
 																	// na action i actionPerformed
 		tglbtnCrvena.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {

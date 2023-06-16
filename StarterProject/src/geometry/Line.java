@@ -7,6 +7,7 @@ public class Line extends Shape {
 	
 	private Point startPoint;
 	private Point endPoint;
+	private Color color;
 	
 	//Konstruktori
 	
@@ -24,6 +25,12 @@ public class Line extends Shape {
 		this.startPoint=startPoint;
 		this.endPoint=endPoint;
 		this.selected=selected; 
+		
+	}
+	public Line(Point startPoint, Point endPoint, boolean selected,Color color)
+	{
+		this(startPoint,endPoint, selected);
+		this.color=color;
 		
 	}
 	
@@ -57,10 +64,9 @@ public class Line extends Shape {
 	
 	//Metoda contains za selektovanje da li  sadrzi ili ne
 	
-		public boolean contains(int x,int y) {
-			return startPoint.distance(x, y)+ endPoint.distance(x, y) - length() <=2; 
-			// metoda preko nekog trougla kao nesto komplikovano
-		}
+	public boolean contains(int x, int y) {
+		return startPoint.distance(x,y) + endPoint.distance(x,y) - length() <= 2;
+	}
 
   //METODE PRISTUPA 
 	 
@@ -83,12 +89,20 @@ public class Line extends Shape {
    {
 	   this.endPoint= endPoint;
    }
-	
+   public Color getColor() {
+		return color;
+	}
+
+	public void setColor(Color color) {
+		this.color = color;
+	}
+
 	//Crtanje linje
 	@Override
+	
 	public void draw(Graphics g)
 	{
-		g.setColor(Color.black);
+		g.setColor(color);	
 		g.drawLine(startPoint.getX(), startPoint.getY(), endPoint.getX(), endPoint.getY());
        
 		// vezba 8
@@ -123,25 +137,7 @@ public class Line extends Shape {
 			return (int)(this.length()- ((Line)o).length());
 		return 0;
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+
 	
 	
 }

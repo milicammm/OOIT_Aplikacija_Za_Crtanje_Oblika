@@ -7,6 +7,7 @@ public class Point extends Shape{
 	
 	private int x;
 	private int y;
+	private Color color;
     // ovo smo brisali kod svih private boolean selected;
 	
 	//konstruktori
@@ -26,6 +27,11 @@ public class Point extends Shape{
 		this.selected=selected;
 
 	}
+	public Point(int x, int y,boolean selected,Color color)
+	{
+		this(x,y,selected);
+		this.color=color;
+	}
 	
 	public double distance(int x2, int y2) {
 		int dx = x2-x;
@@ -34,6 +40,7 @@ public class Point extends Shape{
 		return d;
 		
 	}
+
 	
 	//Redefinisanje toString u metodu koja se nasledjuje iz klase object
 		
@@ -83,6 +90,14 @@ public class Point extends Shape{
    {
 	   y=newY;
    }
+	public Color getColor() {
+		return color;
+	}
+
+	public void setColor(Color color) {
+		this.color = color;
+	}
+  
 	 /* OVO SMO BRISALI KOD SVIH 
 	  * public boolean isSelected()
 	{
@@ -96,7 +111,9 @@ public class Point extends Shape{
 	//Tacka se crta kao horizontalna i vertikalna linija onako ukrstene +
 	@Override  //idem na onu sijalicu i kliknem ono dodaj neimplementirane metode
 	public void draw(Graphics g) {
-		g.setColor(Color.black);
+		
+		
+		g.setColor(color);
 		g.drawLine(x-2, y, x+2, y); //horizontalna linija
 		g.drawLine(x,y-2,x,y+2); // vertikalna linija 	
 		
@@ -129,20 +146,5 @@ public class Point extends Shape{
 			return (int)(this.distance(0,0)-((Point)o).distance(0,0));
 		return 0;
 	}
-  
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+
 }
